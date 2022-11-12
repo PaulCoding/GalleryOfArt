@@ -1,22 +1,23 @@
+package domain;
+
 import javax.persistence.*;
 
 @Entity
 public class Artwork {
     @Id
     @GeneratedValue
-    private Long artworkid;
-
-    @ManyToOne
-    @JoinColumn(name = "artistid")
-    private Artist artist;
+    private Long artworkID;
 
     private String name;
     private String year;
     private String technique;
 
     @ManyToOne
-    @JoinColumn(name = "locationid")
+    @JoinColumn(name = "locationID")
     private Location location;
+    @ManyToOne
+    @JoinColumn(name = "artistID")
+    private Artist artist;
 
     public Artwork() {}
 
@@ -24,12 +25,12 @@ public class Artwork {
         return name;
     }
 
-    public Long getArtworkid() {
-        return artworkid;
+    public Long getArtworkID() {
+        return artworkID;
     }
 
-    public void setArtworkid(Long artworkid) {
-        this.artworkid = artworkid;
+    public void setArtworkID(Long artworkID) {
+        this.artworkID = artworkID;
     }
 
     public Artist getArtist() {

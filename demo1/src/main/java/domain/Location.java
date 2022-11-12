@@ -1,3 +1,5 @@
+package domain;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,11 +8,11 @@ import java.util.Collection;
 public class Location {
     @Id
     @GeneratedValue
-    private Long locationid;
+    private Long locationID;
     private String name;
 
     @ManyToOne
-    @JoinColumn (name = "cityid")
+    @JoinColumn (name = "cityID")
     private City city;
 
     @OneToMany(mappedBy = "location")
@@ -18,12 +20,12 @@ public class Location {
 
     public Location() {}
 
-    public Long getLocationid() {
-        return locationid;
+    public Long getLocationID() {
+        return locationID;
     }
 
-    public void setLocationid(Long locationid) {
-        this.locationid = locationid;
+    public void setLocationID(Long locationID) {
+        this.locationID = locationID;
     }
 
     public String getName() {

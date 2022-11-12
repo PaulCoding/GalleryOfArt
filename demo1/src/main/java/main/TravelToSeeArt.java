@@ -1,5 +1,6 @@
+package main;
 
-import java.util.Scanner;
+import util.KeuzeMenu;
 
 public class TravelToSeeArt {
 
@@ -10,6 +11,22 @@ public class TravelToSeeArt {
 
 
     }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -26,14 +43,14 @@ public class TravelToSeeArt {
 //    // Options
 //
 //    //Alle musea met impressionistische kunst in Parijs
-//    private static void option1(DatabaseHelper databaseHelper) {
+//    private static void option1(util.DatabaseHelper databaseHelper) {
 //
 //        databaseHelper.queryMuseaInParijs();
 //
 //    }
 //
 //    //Plan de kunstreis
-//    private static void option2(DatabaseHelper databaseHelper, Scanner scanner) {
+//    private static void option2(util.DatabaseHelper databaseHelper, Scanner scanner) {
 //
 //        String[] options = {"1- Kies één of meer steden die u wilt bezoeken",
 //                "2- Kies één of meer kunstenaars die u wilt bezichtigen",
@@ -59,18 +76,17 @@ public class TravelToSeeArt {
 //    }
 //
 //    //Reserveer een kunsttour
-//    private static void option3(DatabaseHelper databaseHelper) {
+//    private static void option3(util.DatabaseHelper databaseHelper) {
 //        System.out.println("Thanks for choosing option 3");
 //    }
 //
 //    //Kies één of meer steden die u wilt bezoeken
-//    private static void option1sub1(DatabaseHelper databaseHelper, Scanner scanner) {
+//    private static void option1sub1(util.DatabaseHelper databaseHelper, Scanner scanner) {
 //        System.out.println("Thanks for choosing option 1.1");
 //    }
 //
 //    //Kies één of meer kunstenaars die u wilt bezichtigen
-//    private static void option1sub2(DatabaseHelper databaseHelper, Scanner scanner) {
+//    private static void option1sub2(util.DatabaseHelper databaseHelper, Scanner scanner) {
 //        System.out.println("Thanks for choosing option 1.2");
 //    }
 
-}

@@ -1,3 +1,6 @@
+package util;
+
+import domain.Artist;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -34,11 +37,11 @@ public class DatabaseHelper {
 
     public void querySteden(int artistID) {
 //        if (artistIDs.isEmpty()) {
-//            var queryString = "SELECT a FROM Artist a";
-//            var jpqlQuery = em.createQuery(queryString, Artist.class);
-//            var artists = (ArrayList<Artist>) jpqlQuery.getResultList();
+//            var queryString = "SELECT a FROM domain.Artist a";
+//            var jpqlQuery = em.createQuery(queryString, domain.Artist.class);
+//            var artists = (ArrayList<domain.Artist>) jpqlQuery.getResultList();
 //
-//            for (Artist artist : artists) {
+//            for (domain.Artist artist : artists) {
 //                System.out.println("" + artist.getArtistid() + "- " + artist.getName());
 //            }
 //        }

@@ -1,8 +1,46 @@
+DROP TABLE IF EXISTS country CASCADE;
+CREATE TABLE country
+(
+    countryID bigint NOT NULL,
+    name varchar(255) default NULL,
+
+    PRIMARY KEY (countryID)
+);
+
+ALTER TABLE country
+    DISABLE TRIGGER ALL;
+
+INSERT INTO country (countryID, name) VALUES (1,'France');
+INSERT INTO country (countryID, name) VALUES (2,'England');
+INSERT INTO country (countryID, name) VALUES (3,'Scotland');
+INSERT INTO country (countryID, name) VALUES (4,'Germany');
+INSERT INTO country (countryID, name) VALUES (5,'Netherlands');
+INSERT INTO country (countryID, name) VALUES (6,'Switzerland');
+INSERT INTO country (countryID, name) VALUES (7,'Czech Republic');
+INSERT INTO country (countryID, name) VALUES (8,'Russia');
+INSERT INTO country (countryID, name) VALUES (9,'Japan');
+INSERT INTO country (countryID, name) VALUES (10,'United States');
+INSERT INTO country (countryID, name) VALUES (11,'Denmark');
+INSERT INTO country (countryID, name) VALUES (12,'Hungary');
+INSERT INTO country (countryID, name) VALUES (13,'Spain');
+INSERT INTO country (countryID, name) VALUES (14,'Sweden');
+INSERT INTO country (countryID, name) VALUES (15,'Portugal');
+INSERT INTO country (countryID, name) VALUES (16,'Norway');
+INSERT INTO country (countryID, name) VALUES (17,'Wales');
+INSERT INTO country (countryID, name) VALUES (18,'Canada');
+INSERT INTO country (countryID, name) VALUES (19,'Australia');
+INSERT INTO country (countryID, name) VALUES (20,'Brazil');
+INSERT INTO country (countryID, name) VALUES (21,'Argentina');
+INSERT INTO country (countryID, name) VALUES (22,'Serbia');
+INSERT INTO country (countryID, name) VALUES (23,'Several');
+
+
 DROP TABLE IF EXISTS city CASCADE;
 CREATE TABLE city
 (
     cityID bigint NOT NULL,
     name varchar(255) default NULL,
+    countryID bigint NOT NULL REFERENCES country(countryid),
 
     PRIMARY KEY (cityID)
 );
@@ -10,105 +48,106 @@ CREATE TABLE city
 ALTER TABLE city
     DISABLE TRIGGER ALL;
 
-INSERT INTO city (cityID, name) VALUES (1,'Baden');
-INSERT INTO city (cityID, name) VALUES (2,'Baltimore');
-INSERT INTO city (cityID, name) VALUES (3,'Basel');
-INSERT INTO city (cityID, name) VALUES (4,'Belgrade');
-INSERT INTO city (cityID, name) VALUES (5,'Berlin');
-INSERT INTO city (cityID, name) VALUES (6,'Birmingham');
-INSERT INTO city (cityID, name) VALUES (7,'Boston');
-INSERT INTO city (cityID, name) VALUES (8,'Bremen');
-INSERT INTO city (cityID, name) VALUES (9,'Budapest');
-INSERT INTO city (cityID, name) VALUES (10,'Buenos Aires');
-INSERT INTO city (cityID, name) VALUES (11,'Buffalo');
-INSERT INTO city (cityID, name) VALUES (12,'Caen');
-INSERT INTO city (cityID, name) VALUES (13,'Cambridge UK');
-INSERT INTO city (cityID, name) VALUES (14,'Cambridge US');
-INSERT INTO city (cityID, name) VALUES (15,'Canberra');
-INSERT INTO city (cityID, name) VALUES (16,'Cardiff');
-INSERT INTO city (cityID, name) VALUES (17,'Charlottenlund');
-INSERT INTO city (cityID, name) VALUES (18,'Chicago');
-INSERT INTO city (cityID, name) VALUES (19,'Cincinnati');
-INSERT INTO city (cityID, name) VALUES (20,'Cleveland');
-INSERT INTO city (cityID, name) VALUES (21,'Colmar');
-INSERT INTO city (cityID, name) VALUES (22,'Cologne');
-INSERT INTO city (cityID, name) VALUES (23,'Columbus');
-INSERT INTO city (cityID, name) VALUES (24,'Copenhagen');
-INSERT INTO city (cityID, name) VALUES (25,'Detroit');
-INSERT INTO city (cityID, name) VALUES (26,'Dijon');
-INSERT INTO city (cityID, name) VALUES (27,'Douai');
-INSERT INTO city (cityID, name) VALUES (28,'Edinburgh');
-INSERT INTO city (cityID, name) VALUES (29,'Essen');
-INSERT INTO city (cityID, name) VALUES (30,'Farmington');
-INSERT INTO city (cityID, name) VALUES (31,'Florida');
-INSERT INTO city (cityID, name) VALUES (32,'FortWorth');
-INSERT INTO city (cityID, name) VALUES (33,'Frankfurt');
-INSERT INTO city (cityID, name) VALUES (34,'Glasgow');
-INSERT INTO city (cityID, name) VALUES (35,'Gothenburg');
-INSERT INTO city (cityID, name) VALUES (36,'Grenoble');
-INSERT INTO city (cityID, name) VALUES (37,'Hamburg');
-INSERT INTO city (cityID, name) VALUES (38,'Hartford');
-INSERT INTO city (cityID, name) VALUES (39,'Houston');
-INSERT INTO city (cityID, name) VALUES (40,'KansasCity');
-INSERT INTO city (cityID, name) VALUES (41,'Karlsruhe');
-INSERT INTO city (cityID, name) VALUES (42,'Kurashiki');
-INSERT INTO city (cityID, name) VALUES (43,'Lausanne');
-INSERT INTO city (cityID, name) VALUES (44,'Leeds');
-INSERT INTO city (cityID, name) VALUES (45,'Lille');
-INSERT INTO city (cityID, name) VALUES (46,'Lisbon');
-INSERT INTO city (cityID, name) VALUES (47,'London');
-INSERT INTO city (cityID, name) VALUES (48,'LosAngeles');
-INSERT INTO city (cityID, name) VALUES (49,'Lyon');
-INSERT INTO city (cityID, name) VALUES (50,'Madrid');
-INSERT INTO city (cityID, name) VALUES (51,'Mannheim');
-INSERT INTO city (cityID, name) VALUES (52,'Melbourne');
-INSERT INTO city (cityID, name) VALUES (53,'Merion');
-INSERT INTO city (cityID, name) VALUES (54,'Minneapolis');
-INSERT INTO city (cityID, name) VALUES (55,'Montpellier');
-INSERT INTO city (cityID, name) VALUES (56,'Moscow');
-INSERT INTO city (cityID, name) VALUES (57,'Munich');
-INSERT INTO city (cityID, name) VALUES (58,'Nantes');
-INSERT INTO city (cityID, name) VALUES (59,'Neuchâtel');
-INSERT INTO city (cityID, name) VALUES (60,'New Hampshire');
-INSERT INTO city (cityID, name) VALUES (61,'NewHaven');
-INSERT INTO city (cityID, name) VALUES (62,'NewYork');
-INSERT INTO city (cityID, name) VALUES (63,'Northampton');
-INSERT INTO city (cityID, name) VALUES (64,'Norwich');
-INSERT INTO city (cityID, name) VALUES (65,'Oberlin Ohio');
-INSERT INTO city (cityID, name) VALUES (66,'Ordrupgaard');
-INSERT INTO city (cityID, name) VALUES (67,'Oslo');
-INSERT INTO city (cityID, name) VALUES (68,'Ottawa');
-INSERT INTO city (cityID, name) VALUES (69,'Otterlo');
-INSERT INTO city (cityID, name) VALUES (70,'Oxford');
-INSERT INTO city (cityID, name) VALUES (71,'Paris');
-INSERT INTO city (cityID, name) VALUES (72,'Pasadena');
-INSERT INTO city (cityID, name) VALUES (73,'Pau');
-INSERT INTO city (cityID, name) VALUES (74,'Philadelphia');
-INSERT INTO city (cityID, name) VALUES (75,'Portland');
-INSERT INTO city (cityID, name) VALUES (76,'Prague');
-INSERT INTO city (cityID, name) VALUES (77,'Princeton');
-INSERT INTO city (cityID, name) VALUES (78,'Providence');
-INSERT INTO city (cityID, name) VALUES (79,'Richmond');
-INSERT INTO city (cityID, name) VALUES (80,'Rochester');
-INSERT INTO city (cityID, name) VALUES (81,'Rouen');
-INSERT INTO city (cityID, name) VALUES (82,'Saint-Tropez');
-INSERT INTO city (cityID, name) VALUES (83,'Santa Barbara');
-INSERT INTO city (cityID, name) VALUES (84,'São Paulo');
-INSERT INTO city (cityID, name) VALUES (85,'Several');
-INSERT INTO city (cityID, name) VALUES (86,'Shelburne');
-INSERT INTO city (cityID, name) VALUES (87,'St.Gallen');
-INSERT INTO city (cityID, name) VALUES (88,'St.Petersburg');
-INSERT INTO city (cityID, name) VALUES (89,'Stockholm');
-INSERT INTO city (cityID, name) VALUES (90,'Stuttgart');
-INSERT INTO city (cityID, name) VALUES (91,'The Hague');
-INSERT INTO city (cityID, name) VALUES (92,'Tokyo');
-INSERT INTO city (cityID, name) VALUES (93,'Toledo Ohio');
-INSERT INTO city (cityID, name) VALUES (94,'Toronto');
-INSERT INTO city (cityID, name) VALUES (95,'Tournai');
-INSERT INTO city (cityID, name) VALUES (96,'Washington');
-INSERT INTO city (cityID, name) VALUES (97,'Williamstown');
-INSERT INTO city (cityID, name) VALUES (98,'Winterthur');
-INSERT INTO city (cityID, name) VALUES (99,'Zurich');
+INSERT INTO city (cityID, name, countryID) VALUES (71,'Paris',1);
+INSERT INTO city (cityID, name, countryID) VALUES (12,'Caen',1);
+INSERT INTO city (cityID, name, countryID) VALUES (21,'Colmar',1);
+INSERT INTO city (cityID, name, countryID) VALUES (26,'Dijon',1);
+INSERT INTO city (cityID, name, countryID) VALUES (27,'Douai',1);
+INSERT INTO city (cityID, name, countryID) VALUES (36,'Grenoble',1);
+INSERT INTO city (cityID, name, countryID) VALUES (45,'Lille',1);
+INSERT INTO city (cityID, name, countryID) VALUES (49,'Lyon',1);
+INSERT INTO city (cityID, name, countryID) VALUES (55,'Montpellier',1);
+INSERT INTO city (cityID, name, countryID) VALUES (58,'Nantes',1);
+INSERT INTO city (cityID, name, countryID) VALUES (73,'Pau',1);
+INSERT INTO city (cityID, name, countryID) VALUES (81,'Rouen',1);
+INSERT INTO city (cityID, name, countryID) VALUES (82,'Saint-Tropez',1);
+INSERT INTO city (cityID, name, countryID) VALUES (95,'Tournai',1);
+INSERT INTO city (cityID, name, countryID) VALUES (47,'London',2);
+INSERT INTO city (cityID, name, countryID) VALUES (13,'Cambridge',2);
+INSERT INTO city (cityID, name, countryID) VALUES (70,'Oxford',2);
+INSERT INTO city (cityID, name, countryID) VALUES (6,'Birmingham',2);
+INSERT INTO city (cityID, name, countryID) VALUES (44,'Leeds',2);
+INSERT INTO city (cityID, name, countryID) VALUES (63,'Northampton',2);
+INSERT INTO city (cityID, name, countryID) VALUES (64,'Norwich',2);
+INSERT INTO city (cityID, name, countryID) VALUES (28,'Edinburgh',3);
+INSERT INTO city (cityID, name, countryID) VALUES (34,'Glasgow',3);
+INSERT INTO city (cityID, name, countryID) VALUES (5,'Berlin',4);
+INSERT INTO city (cityID, name, countryID) VALUES (1,'Baden',4);
+INSERT INTO city (cityID, name, countryID) VALUES (8,'Bremen',4);
+INSERT INTO city (cityID, name, countryID) VALUES (22,'Cologne',4);
+INSERT INTO city (cityID, name, countryID) VALUES (29,'Essen',4);
+INSERT INTO city (cityID, name, countryID) VALUES (33,'Frankfurt',4);
+INSERT INTO city (cityID, name, countryID) VALUES (37,'Hamburg',4);
+INSERT INTO city (cityID, name, countryID) VALUES (41,'Karlsruhe',4);
+INSERT INTO city (cityID, name, countryID) VALUES (51,'Mannheim',4);
+INSERT INTO city (cityID, name, countryID) VALUES (57,'Munich',4);
+INSERT INTO city (cityID, name, countryID) VALUES (90,'Stuttgart',4);
+INSERT INTO city (cityID, name, countryID) VALUES (69,'Otterlo',5);
+INSERT INTO city (cityID, name, countryID) VALUES (91,'The Hague',5);
+INSERT INTO city (cityID, name, countryID) VALUES (3,'Basel',6);
+INSERT INTO city (cityID, name, countryID) VALUES (43,'Lausanne',6);
+INSERT INTO city (cityID, name, countryID) VALUES (59,'Neuchâtel',6);
+INSERT INTO city (cityID, name, countryID) VALUES (87,'St. Gallen',6);
+INSERT INTO city (cityID, name, countryID) VALUES (98,'Winterthur',6);
+INSERT INTO city (cityID, name, countryID) VALUES (99,'Zurich',6);
+INSERT INTO city (cityID, name, countryID) VALUES (76,'Prague',7);
+INSERT INTO city (cityID, name, countryID) VALUES (56,'Moscow',8);
+INSERT INTO city (cityID, name, countryID) VALUES (88,'St. Petersburg',8);
+INSERT INTO city (cityID, name, countryID) VALUES (42,'Kurashiki',9);
+INSERT INTO city (cityID, name, countryID) VALUES (92,'Tokyo',9);
+INSERT INTO city (cityID, name, countryID) VALUES (2,'Baltimore',10);
+INSERT INTO city (cityID, name, countryID) VALUES (7,'Boston',10);
+INSERT INTO city (cityID, name, countryID) VALUES (11,'Buffalo',10);
+INSERT INTO city (cityID, name, countryID) VALUES (14,'Cambridge US',10);
+INSERT INTO city (cityID, name, countryID) VALUES (18,'Chicago',10);
+INSERT INTO city (cityID, name, countryID) VALUES (19,'Cincinnati',10);
+INSERT INTO city (cityID, name, countryID) VALUES (20,'Cleveland',10);
+INSERT INTO city (cityID, name, countryID) VALUES (23,'Columbus',10);
+INSERT INTO city (cityID, name, countryID) VALUES (25,'Detroit',10);
+INSERT INTO city (cityID, name, countryID) VALUES (30,'Farmington',10);
+INSERT INTO city (cityID, name, countryID) VALUES (31,'Florida',10);
+INSERT INTO city (cityID, name, countryID) VALUES (32,'FortWorth',10);
+INSERT INTO city (cityID, name, countryID) VALUES (38,'Hartford',10);
+INSERT INTO city (cityID, name, countryID) VALUES (39,'Houston',10);
+INSERT INTO city (cityID, name, countryID) VALUES (40,'KansasCity',10);
+INSERT INTO city (cityID, name, countryID) VALUES (48,'Los Angeles',10);
+INSERT INTO city (cityID, name, countryID) VALUES (53,'Merion',10);
+INSERT INTO city (cityID, name, countryID) VALUES (54,'Minneapolis',10);
+INSERT INTO city (cityID, name, countryID) VALUES (60,'New Hampshire',10);
+INSERT INTO city (cityID, name, countryID) VALUES (61,'New Haven',10);
+INSERT INTO city (cityID, name, countryID) VALUES (62,'New York',10);
+INSERT INTO city (cityID, name, countryID) VALUES (65,'Oberlin Ohio',10);
+INSERT INTO city (cityID, name, countryID) VALUES (72,'Pasadena',10);
+INSERT INTO city (cityID, name, countryID) VALUES (74,'Philadelphia',10);
+INSERT INTO city (cityID, name, countryID) VALUES (75,'Portland',10);
+INSERT INTO city (cityID, name, countryID) VALUES (77,'Princeton',10);
+INSERT INTO city (cityID, name, countryID) VALUES (78,'Providence',10);
+INSERT INTO city (cityID, name, countryID) VALUES (79,'Richmond',10);
+INSERT INTO city (cityID, name, countryID) VALUES (80,'Rochester',10);
+INSERT INTO city (cityID, name, countryID) VALUES (83,'Santa Barbara',10);
+INSERT INTO city (cityID, name, countryID) VALUES (93,'Toledo Ohio',10);
+INSERT INTO city (cityID, name, countryID) VALUES (96,'Washington',10);
+INSERT INTO city (cityID, name, countryID) VALUES (97,'Williamstown',10);
+INSERT INTO city (cityID, name, countryID) VALUES (17,'Charlottenlund',11);
+INSERT INTO city (cityID, name, countryID) VALUES (24,'Copenhagen',11);
+INSERT INTO city (cityID, name, countryID) VALUES (66,'Ordrupgaard',11);
+INSERT INTO city (cityID, name, countryID) VALUES (9,'Budapest',12);
+INSERT INTO city (cityID, name, countryID) VALUES (50,'Madrid',13);
+INSERT INTO city (cityID, name, countryID) VALUES (35,'Gothenburg',14);
+INSERT INTO city (cityID, name, countryID) VALUES (89,'Stockholm',14);
+INSERT INTO city (cityID, name, countryID) VALUES (46,'Lisbon',15);
+INSERT INTO city (cityID, name, countryID) VALUES (67,'Oslo',16);
+INSERT INTO city (cityID, name, countryID) VALUES (16,'Cardiff',17);
+INSERT INTO city (cityID, name, countryID) VALUES (68,'Ottawa',18);
+INSERT INTO city (cityID, name, countryID) VALUES (86,'Shelburne',18);
+INSERT INTO city (cityID, name, countryID) VALUES (94,'Toronto',18);
+INSERT INTO city (cityID, name, countryID) VALUES (15,'Canberra',19);
+INSERT INTO city (cityID, name, countryID) VALUES (52,'Melbourne',19);
+INSERT INTO city (cityID, name, countryID) VALUES (84,'São Paulo',20);
+INSERT INTO city (cityID, name, countryID) VALUES (10,'Buenos Aires',21);
+INSERT INTO city (cityID, name, countryID) VALUES (4,'Belgrade',22);
+INSERT INTO city (cityID, name, countryID) VALUES (85,'Several',23);
+
 
 
 DROP TABLE IF EXISTS location CASCADE;
@@ -119,8 +158,6 @@ CREATE TABLE location
     cityID bigint NOT NULL REFERENCES city(cityID),
 
     PRIMARY KEY (locationID)
---     FOREIGN KEY (cityID) REFERENCES city(cityID)
-
 );
 
 ALTER TABLE location
@@ -140,7 +177,7 @@ INSERT INTO location (locationID, name, cityID) VALUES (11,'Birmingham Museum an
 INSERT INTO location (locationID, name, cityID) VALUES (12,'Bridgestone Museum of Art',92);
 INSERT INTO location (locationID, name, cityID) VALUES (13,'Brooklyn Museum',62);
 INSERT INTO location (locationID, name, cityID) VALUES (14,'Burrell Collection',34);
-INSERT INTO location (locationID, name, cityID) VALUES (15,'City Art Gallery',44);
+INSERT INTO location (locationID, name, cityID) VALUES (15,'domain.City Art Gallery',44);
 INSERT INTO location (locationID, name, cityID) VALUES (16,'Columbia Museum of Art',23);
 INSERT INTO location (locationID, name, cityID) VALUES (17,'Courtauld Gallery',47);
 INSERT INTO location (locationID, name, cityID) VALUES (18,'Currier Gallery of Art Manchester',60);
@@ -250,9 +287,6 @@ INSERT INTO location (locationID, name, cityID) VALUES (121,'Wallraf-Richartz-Mu
 INSERT INTO location (locationID, name, cityID) VALUES (122,'Walters Art Museum',2);
 INSERT INTO location (locationID, name, cityID) VALUES (123,'Yale University Art Gallery',61);
 
-
-
-
 -- INSERT INTO location (locationID, name, city) VALUES (1, 'Bibliothèque Nationale', 'Paris');
 -- INSERT INTO location (locationID, name, city) VALUES (2, 'Musée Carnavalet', 'Paris');
 -- INSERT INTO location (locationID, name, city) VALUES (3, 'Musée dOrsay', 'Paris');
@@ -261,6 +295,61 @@ INSERT INTO location (locationID, name, cityID) VALUES (123,'Yale University Art
 -- INSERT INTO location (locationID, name, city) VALUES (6, 'Musée du Petit Palais', 'Paris');
 -- INSERT INTO location (locationID, name, city) VALUES (7, 'Musée Marmottan Monet', 'Paris');
 -- INSERT INTO location (locationID, name, city) VALUES (8, 'Musée Rodin', 'Paris');
+
+DROP TABLE IF EXISTS artist CASCADE;
+CREATE TABLE artist
+(
+    artistID bigint NOT NULL,
+    name varchar(255)   default NULL,
+    PRIMARY KEY (artistID)
+);
+
+ALTER TABLE artist
+    DISABLE TRIGGER ALL;
+
+INSERT INTO artist (artistID, name) VALUES (1,'Cézanne, Paul');
+INSERT INTO artist (artistID, name) VALUES (2,'Degas, Edgar');
+INSERT INTO artist (artistID, name) VALUES (3,'Manet, Edouard');
+INSERT INTO artist (artistID, name) VALUES (4,'Monet, Claude');
+INSERT INTO artist (artistID, name) VALUES (5,'Morisot, Berthe');
+INSERT INTO artist (artistID, name) VALUES (6,'Pissarro, Camille');
+INSERT INTO artist (artistID, name) VALUES (7,'Renoir, Pierre-Auguste');
+INSERT INTO artist (artistID, name) VALUES (8,'Seurat, Georges');
+INSERT INTO artist (artistID, name) VALUES (9,'Signac, Paul');
+INSERT INTO artist (artistID, name) VALUES (10,'Sisley, Alfred');
+
+
+-- INSERT INTO artist (artistID, name) VALUES (1, 'BOTTICELLI, Sandro');
+-- INSERT INTO artist (artistID, name) VALUES (2, 'BRUEGHEL, Jan the Elder');
+-- INSERT INTO artist (artistID, name) VALUES (3, 'CARAVAGGIO');
+-- INSERT INTO artist (artistID, name) VALUES (4, 'CÉZANNE, Paul');
+-- INSERT INTO artist (artistID, name) VALUES (5, 'DAVID, Jacques-Louis');
+-- INSERT INTO artist (artistID, name) VALUES (6, 'DEGAS, Edgar');
+-- INSERT INTO artist (artistID, name) VALUES (7, 'DÜRER, Albrecht');
+-- INSERT INTO artist (artistID, name) VALUES (8, 'DYCK, Sir Anthony van');
+-- INSERT INTO artist (artistID, name) VALUES (9, 'GAUGUIN, Paul');
+-- INSERT INTO artist (artistID, name) VALUES (10, 'GOGH, Vincent van');
+-- INSERT INTO artist (artistID, name) VALUES (11, 'GOYEN, Jan van');
+-- INSERT INTO artist (artistID, name) VALUES (12, 'GRECO, El');
+-- INSERT INTO artist (artistID, name) VALUES (13, 'INGRES, Jean-Auguste-Dominique');
+-- INSERT INTO artist (artistID, name) VALUES (14, 'LEONARDO da Vinci');
+-- INSERT INTO artist (artistID, name) VALUES (15, 'MANET, Edouard');
+-- INSERT INTO artist (artistID, name) VALUES (16, 'MICHELANGELO Buonarroti');
+-- INSERT INTO artist (artistID, name) VALUES (17, 'MONET, Claude');
+-- INSERT INTO artist (artistID, name) VALUES (18, 'REMBRANDT Harmenszoon van Rijn');
+-- INSERT INTO artist (artistID, name) VALUES (19, 'RENOIR, Pierre-Auguste');
+-- INSERT INTO artist (artistID, name) VALUES (20, 'RODIN, Auguste');
+-- INSERT INTO artist (artistID, name) VALUES (21, 'RUBENS, Peter Paul');
+-- INSERT INTO artist (artistID, name) VALUES (22, 'RUISDAEL, Jacob Isaackszon van');
+-- INSERT INTO artist (artistID, name) VALUES (23, 'SEURAT, Georges');
+-- INSERT INTO artist (artistID, name) VALUES (24, 'SIGNAC, Paul');
+-- INSERT INTO artist (artistID, name) VALUES (25, 'TINTORETTO');
+-- INSERT INTO artist (artistID, name) VALUES (26, 'TOULOUSE-LAUTREC, Henri de');
+-- INSERT INTO artist (artistID, name) VALUES (27, 'VERMEER, Johannes');
+
+ALTER TABLE artist
+    ENABLE TRIGGER ALL;
+
 
 DROP TABLE IF EXISTS artwork CASCADE;
 CREATE TABLE artwork
@@ -366,7 +455,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (82,1,'Self-Portrait in a Felt Hat','1890-95','Oil on canvas, 61 x 50 cm',12,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (83,1,'Mont Sainte-Victoire and Château Noir','1904-06','Oil on canvas, 66 x 81 cm',12,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (84,1,'Bathers','c. 1900','Watercolour and pencil, 130 x 210 mm',12,'graphics','other');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (85,1,'Louis-Auguste Cézanne, the Artist`s Father, Reading the L`Événement','1866','Oil on canvas, 200 x 120 cm',78,'painting','portrait');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (85,1,'Louis-Auguste Cézanne, the domain.Artist`s Father, Reading the L`Événement','1866','Oil on canvas, 200 x 120 cm',78,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (86,1,'The House of Père Lacroix in Auvers','1873','Oil on canvas, 61 x 51 cm',78,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (87,1,'View of Château Noir','1894-96','Oil on canvas, 73 x 92 cm',78,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (88,1,'Still-Life with Apples and Peaches','c. 1905','Oil on canvas, 81 x 100 cm',78,'painting','still-life');
@@ -456,7 +545,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (172,2,'Study for the Dancing School','1879','Black pencil, 213 x 170 mm',10,'graphics','study');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (173,2,'Self-Portrait','c. 1855','Oil on paper, 81 x 65 cm',43,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (174,2,'Semiramis Building Babylon','1861','Oil on canvas, 151 x 258 cm',43,'painting','historical');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (175,2,'The Sufferings of the City of New Orleans','1865','Oil on paper, mounted on canvas, 81 x 147 cm',43,'painting','historical');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (175,2,'The Sufferings of the domain.City of New Orleans','1865','Oil on paper, mounted on canvas, 81 x 147 cm',43,'painting','historical');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (176,2,'The Bellelli Family','1860-62','Oil on canvas, 200 x 253 cm',43,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (177,2,'Gentlemen`s Race. Before the Start','1862','Oil on canvas, 49 x 62 cm',43,'painting','other');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (178,2,'Hilaire de Gas','1857','Oil on canvas, 53 x 41 cm',43,'painting','portrait');
@@ -500,7 +589,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (216,2,'Ballet Class','1881','Oil on canvas, 82 x 77 cm',68,'painting','other');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (217,2,'Portrait of Edouard Manet','1862-65','Etching on white wove paper, 133 x 125 mm',68,'graphics','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (218,2,'Dancer with Bouquet','1878-80','Pastel on paper, 40 x 50 cm',70,'painting','other');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (219,2,'Six Friends of the Artist','1885','Pastel and black chalk on yellowed gray paper, 113 x 70 cm',70,'painting','portrait');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (219,2,'Six Friends of the domain.Artist','1885','Pastel and black chalk on yellowed gray paper, 113 x 70 cm',70,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (220,2,'Place de la Concorde','1876','Oil on canvas, 79 x 118 cm',115,'painting','other');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (221,2,'Woman Combing Her Hair','c. 1885','Pastel on gray-brown paper pasted onto card, 53 x 52 cm',115,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (222,2,'Dancers at the Bar','c. 1905','Charcoal and pastel on tracing paper, 46,4 x 101,6 cm',116,'graphics','study');
@@ -835,7 +924,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (551,5,'Julie Manet and Her Greyhound','1893','Oil on canvas, 73 x 80 cm',59,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (552,5,'Pasie Sewing in the Garden','1881','Oil on canvas',53,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (553,5,'View of Paris from the Trocadéro','1872','Oil on canvas, 45 x 81 cm',68,'painting','landscape');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (554,5,'The Artist`s Mother and Sister (Reading)','1869-70','Oil on canvas, 101 x 82 cm',78,'painting','portrait');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (554,5,'The domain.Artist`s Mother and Sister (Reading)','1869-70','Oil on canvas, 101 x 82 cm',78,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (555,5,'On the Balcony','1871-72','Oil on canvas, 60 x 50 cm',101,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (556,5,'Hide and Seek','1873','Oil on canvas, 45 x 55 cm',101,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (557,6,'The Versailles Road at Louveciennes (Snow)','1869','Oil on canvas, 38 x 46 cm',122,'painting','landscape');
@@ -867,7 +956,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (583,6,'Snowy Landscape, Eragny, Evening','1894','Oil on canvas, 55 x 65 cm',96,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (584,6,'Tuileries Garden in Rain','1899','Oil on canvas, 65 x 92 cm',8,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (585,6,'Farm at Montfoucault, Snow Effect','1876','Oil on canvas, 54 x 65 cm',8,'painting','landscape');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (586,6,'View from the Artist`s Window at Eragny','1886-88','Oil on canvas, 65 x 81 cm',8,'painting','landscape');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (586,6,'View from the domain.Artist`s Window at Eragny','1886-88','Oil on canvas, 65 x 81 cm',8,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (587,6,'The Quay at Le Havre','1903','Oil on paper, 239 x 295 mm',8,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (588,6,'Study of Upper Norwood, London','1870-71','Brush and brown ink over pencil, 151 x 190 mm',8,'graphics','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (589,6,'The River near Rouen','1883','Pencil, 131 x 179 mm',8,'graphics','landscape');
@@ -965,7 +1054,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (681,7,'Banks of the Seine at Champrosay','1876','Oil on canvas, 55 x 66 cm',43,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (682,7,'Nude in the Sunlight','1875-76','Oil on canvas, 81 x 65 cm',43,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (683,7,'Dance in the Country','1883','Oil on canvas, 180 x 90 cm',43,'painting','genre');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (684,7,'Dance in the City','1883','Oil on canvas, 180 x 90 cm',43,'painting','genre');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (684,7,'Dance in the domain.City','1883','Oil on canvas, 180 x 90 cm',43,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (685,7,'Roses','1890','Oil on canvas, 35 x 27 cm',43,'painting','still-life');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (686,7,'Girls at the Piano','1892','Oil on canvas, 116 x 90 cm',43,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (687,7,'Gabrielle with a Rose','1911','Oil on canvas, 56 x 47 cm',43,'painting','portrait');
@@ -1139,7 +1228,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 -- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (19, 5, 'The Oath of the Horatii', '1784', 'Oil on canvas, 330 x 425 cm', 5, 'painting', 'historical');
 -- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (20, 6, 'Self-Portrait', 'c. 1855', 'Oil on paper, 81 x 65 cm', 3, 'painting', 'portrait');
 -- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (21, 6, 'Semiramis Building Babylon', '1861', 'Oil on canvas, 151 x 258 cm', 3, 'painting', 'historical');
--- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (22, 6, 'The Sufferings of the City of New Orleans', '1865', 'Oil on paper, mounted on canvas, 81 x 147 cm', 3, 'painting', 'historical');
+-- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (22, 6, 'The Sufferings of the domain.City of New Orleans', '1865', 'Oil on paper, mounted on canvas, 81 x 147 cm', 3, 'painting', 'historical');
 -- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (23, 6, 'The Bellelli Family', '1860-62', 'Oil on canvas, 200 x 253 cm', 3, 'painting', 'portrait');
 -- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (24, 7, 'Head of a Woman', 'c. 1520', 'Tempera on canvas, 25,5 x 21,5 cm', 1, 'painting', 'portrait');
 -- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (25, 7, 'Self-portrait at 22', '1493', 'Oil on linen, transferred from vellum, 57 x 45 cm', 5, 'painting', 'portrait');
@@ -1205,59 +1294,5 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 -- INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (85, 27, 'The Lacemaker', '1669-70', 'Oil on canvas transferred to panel, 23.9 x 20.5 cm', 5, 'painting', 'genre');
 
 ALTER TABLE artwork
-    ENABLE TRIGGER ALL;
-
-DROP TABLE IF EXISTS artist CASCADE;
-CREATE TABLE artist
-(
-    artistID bigint NOT NULL,
-    name varchar(255)   default NULL,
-    PRIMARY KEY (artistID)
-);
-
-ALTER TABLE artist
-    DISABLE TRIGGER ALL;
-
-INSERT INTO artist (artistID, name) VALUES (1,'Cézanne, Paul');
-INSERT INTO artist (artistID, name) VALUES (2,'Degas, Edgar');
-INSERT INTO artist (artistID, name) VALUES (3,'Manet, Edouard');
-INSERT INTO artist (artistID, name) VALUES (4,'Monet, Claude');
-INSERT INTO artist (artistID, name) VALUES (5,'Morisot, Berthe');
-INSERT INTO artist (artistID, name) VALUES (6,'Pissarro, Camille');
-INSERT INTO artist (artistID, name) VALUES (7,'Renoir, Pierre-Auguste');
-INSERT INTO artist (artistID, name) VALUES (8,'Seurat, Georges');
-INSERT INTO artist (artistID, name) VALUES (9,'Signac, Paul');
-INSERT INTO artist (artistID, name) VALUES (10,'Sisley, Alfred');
-
-
--- INSERT INTO artist (artistID, name) VALUES (1, 'BOTTICELLI, Sandro');
--- INSERT INTO artist (artistID, name) VALUES (2, 'BRUEGHEL, Jan the Elder');
--- INSERT INTO artist (artistID, name) VALUES (3, 'CARAVAGGIO');
--- INSERT INTO artist (artistID, name) VALUES (4, 'CÉZANNE, Paul');
--- INSERT INTO artist (artistID, name) VALUES (5, 'DAVID, Jacques-Louis');
--- INSERT INTO artist (artistID, name) VALUES (6, 'DEGAS, Edgar');
--- INSERT INTO artist (artistID, name) VALUES (7, 'DÜRER, Albrecht');
--- INSERT INTO artist (artistID, name) VALUES (8, 'DYCK, Sir Anthony van');
--- INSERT INTO artist (artistID, name) VALUES (9, 'GAUGUIN, Paul');
--- INSERT INTO artist (artistID, name) VALUES (10, 'GOGH, Vincent van');
--- INSERT INTO artist (artistID, name) VALUES (11, 'GOYEN, Jan van');
--- INSERT INTO artist (artistID, name) VALUES (12, 'GRECO, El');
--- INSERT INTO artist (artistID, name) VALUES (13, 'INGRES, Jean-Auguste-Dominique');
--- INSERT INTO artist (artistID, name) VALUES (14, 'LEONARDO da Vinci');
--- INSERT INTO artist (artistID, name) VALUES (15, 'MANET, Edouard');
--- INSERT INTO artist (artistID, name) VALUES (16, 'MICHELANGELO Buonarroti');
--- INSERT INTO artist (artistID, name) VALUES (17, 'MONET, Claude');
--- INSERT INTO artist (artistID, name) VALUES (18, 'REMBRANDT Harmenszoon van Rijn');
--- INSERT INTO artist (artistID, name) VALUES (19, 'RENOIR, Pierre-Auguste');
--- INSERT INTO artist (artistID, name) VALUES (20, 'RODIN, Auguste');
--- INSERT INTO artist (artistID, name) VALUES (21, 'RUBENS, Peter Paul');
--- INSERT INTO artist (artistID, name) VALUES (22, 'RUISDAEL, Jacob Isaackszon van');
--- INSERT INTO artist (artistID, name) VALUES (23, 'SEURAT, Georges');
--- INSERT INTO artist (artistID, name) VALUES (24, 'SIGNAC, Paul');
--- INSERT INTO artist (artistID, name) VALUES (25, 'TINTORETTO');
--- INSERT INTO artist (artistID, name) VALUES (26, 'TOULOUSE-LAUTREC, Henri de');
--- INSERT INTO artist (artistID, name) VALUES (27, 'VERMEER, Johannes');
-
-ALTER TABLE artist
     ENABLE TRIGGER ALL;
 

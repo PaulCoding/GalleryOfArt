@@ -1,3 +1,6 @@
+package util;
+
+import domain.Artist;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -119,7 +122,7 @@ public class KeuzeMenu {
         System.out.println();
         ArrayList<Artist> artists = databaseHelper.queryArtists(new ArrayList<Integer>());
         for (Artist artist : artists) {
-            System.out.println("" + artist.getArtistid() + "- " + artist.getName());
+            System.out.println("" + artist.getArtistID() + "- " + artist.getName());
         }
         System.out.print("Choose your option : ");
     }

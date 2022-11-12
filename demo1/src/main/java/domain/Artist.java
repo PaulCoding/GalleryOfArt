@@ -1,3 +1,5 @@
+package domain;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,7 +8,7 @@ import java.util.Collection;
 public class Artist {
     @Id
     @GeneratedValue
-    private Long artistid;
+    private Long artistID;
     private String name;
 
     @OneToMany(mappedBy = "artist")
@@ -18,12 +20,12 @@ public class Artist {
         this.name = name;
     }
 
-    public Long getArtistid() {
-        return artistid;
+    public Long getArtistID() {
+        return artistID;
     }
 
-    public void setArtistid(Long artistid) {
-        this.artistid = artistid;
+    public void setArtistID(Long artistID) {
+        this.artistID = artistID;
     }
 
     public String getName() {
