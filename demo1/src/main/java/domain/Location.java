@@ -1,11 +1,13 @@
 package domain;
 
+import domain.interfaces.PrintableInList;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-public class Location {
+public class Location implements PrintableInList {
     @Id
     @GeneratedValue
     private Long locationID;
@@ -18,9 +20,21 @@ public class Location {
     @OneToMany(mappedBy = "location")
     private Collection<Artwork> artworks = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "verlangID")
+    private Verlanglijst verlanglijst;
+
     public Location() {}
 
-    public Long getLocationID() {
+    public Verlanglijst getVerlanglijst() {
+        return verlanglijst;
+    }
+
+    public void setVerlanglijst(Verlanglijst verlanglijst) {
+        this.verlanglijst = verlanglijst;
+    }
+
+    public Long getID() {
         return locationID;
     }
 

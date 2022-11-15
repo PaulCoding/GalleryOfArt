@@ -1,11 +1,13 @@
 package domain;
 
+import domain.interfaces.PrintableInList;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-public class Artist {
+public class Artist implements PrintableInList {
     @Id
     @GeneratedValue
     private Long artistID;
@@ -20,7 +22,7 @@ public class Artist {
         this.name = name;
     }
 
-    public Long getArtistID() {
+    public Long getID() {
         return artistID;
     }
 

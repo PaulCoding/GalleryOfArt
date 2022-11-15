@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class Demo1Test {
-    private static final Logger logger = LoggerFactory.getLogger(Demo1Test.class);
+public class UnitTests {
+    private static final Logger logger = LoggerFactory.getLogger(UnitTests.class);
 
     /* The common players we need for every test. */
     private EntityTransaction tx;

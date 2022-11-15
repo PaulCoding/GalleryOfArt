@@ -1,5 +1,7 @@
 package domain;
 
+import domain.interfaces.PrintableInList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-public class Country {
+public class Country implements PrintableInList {
     @Id
     @GeneratedValue
     private Long countryID;
@@ -18,7 +20,7 @@ public class Country {
 
     public Country() {}
 
-    public Long getCountryID() {
+    public Long getID() {
         return countryID;
     }
 

@@ -1,11 +1,13 @@
 package domain;
 
+import domain.interfaces.PrintableInList;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
-public class City {
+public class City implements PrintableInList {
     @Id
     @GeneratedValue
     private Long cityID;
@@ -19,7 +21,7 @@ public class City {
     public City() {
     }
 
-    public Long getCityID() {
+    public Long getID() {
         return cityID;
     }
 

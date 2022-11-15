@@ -8,8 +8,7 @@ public class TravelToSeeArt {
 
         KeuzeMenu keuzeMenu = new KeuzeMenu();
         keuzeMenu.toonHoofdmenu();
-
-
+        
     }
 
 }

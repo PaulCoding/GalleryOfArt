@@ -1,3 +1,18 @@
+DROP TABLE IF EXISTS verlanglijst CASCADE;
+CREATE TABLE verlanglijst
+(
+    verlangID bigint NOT NULL,
+
+    PRIMARY KEY (verlangID)
+);
+
+ALTER TABLE verlanglijst
+    DISABLE TRIGGER ALL;
+
+INSERT INTO verlanglijst (verlangID) VALUES (1);
+
+
+
 DROP TABLE IF EXISTS country CASCADE;
 CREATE TABLE country
 (
@@ -156,6 +171,7 @@ CREATE TABLE location
     locationID bigint NOT NULL,
     name varchar(255) default NULL,
     cityID bigint NOT NULL REFERENCES city(cityID),
+    verlangID bigint default NULL REFERENCES verlanglijst(verlangID),
 
     PRIMARY KEY (locationID)
 );
@@ -177,7 +193,7 @@ INSERT INTO location (locationID, name, cityID) VALUES (11,'Birmingham Museum an
 INSERT INTO location (locationID, name, cityID) VALUES (12,'Bridgestone Museum of Art',92);
 INSERT INTO location (locationID, name, cityID) VALUES (13,'Brooklyn Museum',62);
 INSERT INTO location (locationID, name, cityID) VALUES (14,'Burrell Collection',34);
-INSERT INTO location (locationID, name, cityID) VALUES (15,'domain.City Art Gallery',44);
+INSERT INTO location (locationID, name, cityID) VALUES (15,'City Art Gallery',44);
 INSERT INTO location (locationID, name, cityID) VALUES (16,'Columbia Museum of Art',23);
 INSERT INTO location (locationID, name, cityID) VALUES (17,'Courtauld Gallery',47);
 INSERT INTO location (locationID, name, cityID) VALUES (18,'Currier Gallery of Art Manchester',60);
@@ -209,7 +225,7 @@ INSERT INTO location (locationID, name, cityID) VALUES (43,'Musée d`Orsay',71);
 INSERT INTO location (locationID, name, cityID) VALUES (44,'Musée d`Unterlinden',21);
 INSERT INTO location (locationID, name, cityID) VALUES (45,'Musée de Grenoble',36);
 INSERT INTO location (locationID, name, cityID) VALUES (46,'Musée de l`Annonciade',82);
-INSERT INTO location (locationID, name, cityID) VALUES (47,'Musée de l`Orangerie',71);
+INSERT INTO location (locationID, name, cityID, verlangID) VALUES (47,'Musée de l`Orangerie',71,1);
 INSERT INTO location (locationID, name, cityID) VALUES (48,'Musée des Beaux-Arts',12);
 INSERT INTO location (locationID, name, cityID) VALUES (49,'Musée des Beaux-Arts',26);
 INSERT INTO location (locationID, name, cityID) VALUES (50,'Musée des Beaux-Arts',49);
@@ -221,7 +237,7 @@ INSERT INTO location (locationID, name, cityID) VALUES (55,'Musée des Beaux-Art
 INSERT INTO location (locationID, name, cityID) VALUES (56,'Musée du Louvre',71);
 INSERT INTO location (locationID, name, cityID) VALUES (57,'Musée du Petit Palais',71);
 INSERT INTO location (locationID, name, cityID) VALUES (58,'Musée Fabre',55);
-INSERT INTO location (locationID, name, cityID) VALUES (59,'Musée Marmottan Monet',71);
+INSERT INTO location (locationID, name, cityID, verlangID) VALUES (59,'Musée Marmottan Monet',71,1);
 INSERT INTO location (locationID, name, cityID) VALUES (60,'Musée Picasso',71);
 INSERT INTO location (locationID, name, cityID) VALUES (61,'Museo Nacional de Bellas Artes',10);
 INSERT INTO location (locationID, name, cityID) VALUES (62,'Museo Thyssen-Bornemisza',50);
@@ -455,7 +471,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (82,1,'Self-Portrait in a Felt Hat','1890-95','Oil on canvas, 61 x 50 cm',12,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (83,1,'Mont Sainte-Victoire and Château Noir','1904-06','Oil on canvas, 66 x 81 cm',12,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (84,1,'Bathers','c. 1900','Watercolour and pencil, 130 x 210 mm',12,'graphics','other');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (85,1,'Louis-Auguste Cézanne, the domain.Artist`s Father, Reading the L`Événement','1866','Oil on canvas, 200 x 120 cm',78,'painting','portrait');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (85,1,'Louis-Auguste Cézanne, the Artist`s Father, Reading the L`Événement','1866','Oil on canvas, 200 x 120 cm',78,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (86,1,'The House of Père Lacroix in Auvers','1873','Oil on canvas, 61 x 51 cm',78,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (87,1,'View of Château Noir','1894-96','Oil on canvas, 73 x 92 cm',78,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (88,1,'Still-Life with Apples and Peaches','c. 1905','Oil on canvas, 81 x 100 cm',78,'painting','still-life');
@@ -545,7 +561,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (172,2,'Study for the Dancing School','1879','Black pencil, 213 x 170 mm',10,'graphics','study');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (173,2,'Self-Portrait','c. 1855','Oil on paper, 81 x 65 cm',43,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (174,2,'Semiramis Building Babylon','1861','Oil on canvas, 151 x 258 cm',43,'painting','historical');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (175,2,'The Sufferings of the domain.City of New Orleans','1865','Oil on paper, mounted on canvas, 81 x 147 cm',43,'painting','historical');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (175,2,'The Sufferings of the City of New Orleans','1865','Oil on paper, mounted on canvas, 81 x 147 cm',43,'painting','historical');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (176,2,'The Bellelli Family','1860-62','Oil on canvas, 200 x 253 cm',43,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (177,2,'Gentlemen`s Race. Before the Start','1862','Oil on canvas, 49 x 62 cm',43,'painting','other');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (178,2,'Hilaire de Gas','1857','Oil on canvas, 53 x 41 cm',43,'painting','portrait');
@@ -589,7 +605,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (216,2,'Ballet Class','1881','Oil on canvas, 82 x 77 cm',68,'painting','other');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (217,2,'Portrait of Edouard Manet','1862-65','Etching on white wove paper, 133 x 125 mm',68,'graphics','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (218,2,'Dancer with Bouquet','1878-80','Pastel on paper, 40 x 50 cm',70,'painting','other');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (219,2,'Six Friends of the domain.Artist','1885','Pastel and black chalk on yellowed gray paper, 113 x 70 cm',70,'painting','portrait');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (219,2,'Six Friends of the Artist','1885','Pastel and black chalk on yellowed gray paper, 113 x 70 cm',70,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (220,2,'Place de la Concorde','1876','Oil on canvas, 79 x 118 cm',115,'painting','other');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (221,2,'Woman Combing Her Hair','c. 1885','Pastel on gray-brown paper pasted onto card, 53 x 52 cm',115,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (222,2,'Dancers at the Bar','c. 1905','Charcoal and pastel on tracing paper, 46,4 x 101,6 cm',116,'graphics','study');
@@ -924,7 +940,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (551,5,'Julie Manet and Her Greyhound','1893','Oil on canvas, 73 x 80 cm',59,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (552,5,'Pasie Sewing in the Garden','1881','Oil on canvas',53,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (553,5,'View of Paris from the Trocadéro','1872','Oil on canvas, 45 x 81 cm',68,'painting','landscape');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (554,5,'The domain.Artist`s Mother and Sister (Reading)','1869-70','Oil on canvas, 101 x 82 cm',78,'painting','portrait');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (554,5,'The Artist`s Mother and Sister (Reading)','1869-70','Oil on canvas, 101 x 82 cm',78,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (555,5,'On the Balcony','1871-72','Oil on canvas, 60 x 50 cm',101,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (556,5,'Hide and Seek','1873','Oil on canvas, 45 x 55 cm',101,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (557,6,'The Versailles Road at Louveciennes (Snow)','1869','Oil on canvas, 38 x 46 cm',122,'painting','landscape');
@@ -956,7 +972,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (583,6,'Snowy Landscape, Eragny, Evening','1894','Oil on canvas, 55 x 65 cm',96,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (584,6,'Tuileries Garden in Rain','1899','Oil on canvas, 65 x 92 cm',8,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (585,6,'Farm at Montfoucault, Snow Effect','1876','Oil on canvas, 54 x 65 cm',8,'painting','landscape');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (586,6,'View from the domain.Artist`s Window at Eragny','1886-88','Oil on canvas, 65 x 81 cm',8,'painting','landscape');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (586,6,'View from the Artist`s Window at Eragny','1886-88','Oil on canvas, 65 x 81 cm',8,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (587,6,'The Quay at Le Havre','1903','Oil on paper, 239 x 295 mm',8,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (588,6,'Study of Upper Norwood, London','1870-71','Brush and brown ink over pencil, 151 x 190 mm',8,'graphics','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (589,6,'The River near Rouen','1883','Pencil, 131 x 179 mm',8,'graphics','landscape');
@@ -1054,7 +1070,7 @@ INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, art
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (681,7,'Banks of the Seine at Champrosay','1876','Oil on canvas, 55 x 66 cm',43,'painting','landscape');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (682,7,'Nude in the Sunlight','1875-76','Oil on canvas, 81 x 65 cm',43,'painting','portrait');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (683,7,'Dance in the Country','1883','Oil on canvas, 180 x 90 cm',43,'painting','genre');
-INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (684,7,'Dance in the domain.City','1883','Oil on canvas, 180 x 90 cm',43,'painting','genre');
+INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (684,7,'Dance in the City','1883','Oil on canvas, 180 x 90 cm',43,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (685,7,'Roses','1890','Oil on canvas, 35 x 27 cm',43,'painting','still-life');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (686,7,'Girls at the Piano','1892','Oil on canvas, 116 x 90 cm',43,'painting','genre');
 INSERT INTO artwork (artworkID, artistID, name, year, technique, locationID, artform, type) VALUES (687,7,'Gabrielle with a Rose','1911','Oil on canvas, 56 x 47 cm',43,'painting','portrait');
